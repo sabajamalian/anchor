@@ -3,7 +3,8 @@
 This module defines the Item model for the database.
 """
 
-from sqlalchemy import Column, Integer, String, DateTime, func
+from sqlalchemy import Column, DateTime, Integer, String, func
+
 from app.database.connection import Base
 
 
@@ -17,9 +18,9 @@ class Item(Base):
         created_at: Timestamp when the item was created.
         updated_at: Timestamp when the item was last updated.
     """
-    
+
     __tablename__ = "items"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(255), nullable=False)
     description = Column(String(1000), nullable=True)

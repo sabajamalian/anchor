@@ -4,7 +4,8 @@ This module provides database connection setup and session management.
 """
 
 from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import declarative_base, sessionmaker
+
 from app.config import settings
 
 # Create database engine

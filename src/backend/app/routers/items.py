@@ -3,11 +3,12 @@
 This module provides CRUD operations for items resource.
 """
 
-from typing import List, Optional
+from datetime import datetime
+
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel, ConfigDict
 from sqlalchemy.orm import Session
-from sqlalchemy import text
-from pydantic import BaseModel
+
 from app.database.connection import get_db
 from app.models.item import Item
 
@@ -22,7 +23,7 @@ class ItemCreate(BaseModel):
         description: Item description (optional).
     """
     name: str
-    description: Optional[str] = None
+    description: str | None = None
 
 
 class ItemResponse(BaseModel):
@@ -37,15 +38,14 @@ class ItemResponse(BaseModel):
     """
     id: int
     name: str
-    description: Optional[str]
-    created_at: str
-    updated_at: str
-    
-    class Config:
-        from_attributes = True
+    description: str | None
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
 
 
-@router.get("/", response_model=List[ItemResponse])
+@router.get("/", response_model=list[ItemResponse])
 async def list_items(
     skip: int = 0,
     limit: int = 100,
@@ -125,7 +125,7 @@ async def update_item(
     item = db.query(Item).filter(Item.id == item_id).first()
     if item is None:
         raise HTTPException(status_code=404, detail="Item not found")
-    
+
     item.name = item_data.name
     item.description = item_data.description
     db.commit()
@@ -147,7 +147,7 @@ async def delete_item(item_id: int, db: Session = Depends(get_db)):
     item = db.query(Item).filter(Item.id == item_id).first()
     if item is None:
         raise HTTPException(status_code=404, detail="Item not found")
-    
+
     db.delete(item)
     db.commit()
     return None

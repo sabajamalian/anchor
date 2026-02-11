@@ -4,7 +4,7 @@ This module manages application settings and environment variables.
 """
 
 import os
-from typing import Optional
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,22 +12,22 @@ load_dotenv()
 
 class Settings:
     """Application settings loaded from environment variables."""
-    
+
     # Database configuration
     DB_SERVER: str = os.getenv("DB_SERVER", "localhost")
     DB_NAME: str = os.getenv("DB_NAME", "anchor_db")
     DB_USER: str = os.getenv("DB_USER", "")
     DB_PASSWORD: str = os.getenv("DB_PASSWORD", "")
     DB_DRIVER: str = os.getenv("DB_DRIVER", "ODBC Driver 18 for SQL Server")
-    
+
     # Azure Storage configuration
     STORAGE_ACCOUNT_NAME: str = os.getenv("STORAGE_ACCOUNT_NAME", "")
     STORAGE_CONTAINER_NAME: str = os.getenv("STORAGE_CONTAINER_NAME", "uploads")
-    
+
     # Application configuration
     APP_NAME: str = "Anchor Starter"
     DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
-    
+
     @property
     def database_url(self) -> str:
         """Construct the database connection URL.
