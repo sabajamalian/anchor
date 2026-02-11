@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor Starter - FastAPI Template</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header class="container">
+        <hgroup>
+            <h1>⚓ Anchor Starter</h1>
+            <p>FastAPI + Azure SQL + PicoCSS Template</p>
+        </hgroup>
+    </header>
+
+    <main class="container">
+        <section id="health-status">
+            <h2>System Health</h2>
+            <div class="grid">
+                <article>
+                    <header><strong>API Status</strong></header>
+                    <p id="api-status">Checking...</p>
+                </article>
+                <article>
+                    <header><strong>Database Status</strong></header>
+                    <p id="db-status">Checking...</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="items-section">
+            <h2>Items Management</h2>
+            
+            <article>
+                <header><strong>Create New Item</strong></header>
+                <form id="create-item-form">
+                    <label for="item-name">
+                        Name
+                        <input type="text" id="item-name" name="name" placeholder="Item name" required>
+                    </label>
+                    <label for="item-description">
+                        Description
+                        <textarea id="item-description" name="description" placeholder="Item description"></textarea>
+                    </label>
+                    <button type="submit">Create Item</button>
+                </form>
+            </article>
+
+            <article>
+                <header><strong>Items List</strong></header>
+                <div id="items-list">
+                    <p>Loading items...</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small>Built with FastAPI, Azure SQL, and PicoCSS</small>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

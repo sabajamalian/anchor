@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info
+.pytest_cache
+.ruff_cache
+
+# Virtual environments
+venv
+.venv
+env
+
+# Environment files
+.env
+
+# IDE
+.vscode
+.idea
+
+# Documentation
+*.md
+LICENSE
+
+# Infrastructure
+infra/
+
+# Tests
+src/backend/tests/

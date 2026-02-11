@@ -1,0 +1,40 @@
+[tool.ruff]
+# Set the maximum line length to 100
+line-length = 100
+
+# Assume Python 3.12
+target-version = "py312"
+
+# Exclude common directories
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+# Enable pycodestyle (E, W), Pyflakes (F), and isort (I)
+select = ["E", "W", "F", "I", "N", "B", "UP"]
+
+# Ignore specific rules
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Indent with spaces
+indent-style = "space"
+
+# Use Unix line endings
+line-ending = "lf"

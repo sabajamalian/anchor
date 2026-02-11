@@ -1,0 +1,49 @@
+/* Custom styles for Anchor Starter */
+
+:root {
+    --primary-color: #0066cc;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+}
+
+header.container {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+header hgroup {
+    margin-bottom: 2rem;
+}
+
+main.container {
+    padding: 2rem 0;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+.grid {
+    gap: 1rem;
+}
+
+article header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+#items-list article {
+    margin-bottom: 1rem;
+}
+
+footer.container {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--muted-border-color);
+}
